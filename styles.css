@@ -1,0 +1,306 @@
+/* styles.css */
+:root {
+    /* Other variables */
+    --bg-color: #f0f0f0;
+    --container-bg: white;
+    --text-color: #333;
+    --cell-bg: #ecf0f1;
+    --cell-text: #34495e;
+    --playing-bg: #3498db;
+    --playing-text: white;
+    --btn-primary: #2ecc71;
+    --btn-primary-hover: #27ae60;
+    --btn-secondary: #e74c3c;
+    --btn-secondary-hover: #c0392b;
+    --update-btn: #3498db;
+    --update-btn-hover: #2980b9;
+    --accent-color: #f39c12;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --container-bg: #2c3e50;
+    --text-color: #ecf0f1;
+    --cell-bg: #34495e;
+    --cell-text: #ecf0f1;
+    --playing-bg: #e74c3c;
+    --playing-text: #ecf0f1;
+    --btn-primary: #27ae60;
+    --btn-primary-hover: #2ecc71;
+    --btn-secondary: #c0392b;
+    --btn-secondary-hover: #e74c3c;
+    --update-btn: #3498db;
+    --update-btn-hover: #2980b9;
+    --accent-color: #f39c12;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: var(--container-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    max-width: 800px;
+    width: 100%;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+.definition {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.graphic {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.graphic:hover {
+    transform: scale(1.05);
+}
+
+.instructions {
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.instructions summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    outline: none;
+}
+
+.instructions ol {
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+.instructions p {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.cell {
+    background-color: var(--cell-bg);
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cell input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    color: var(--cell-text);
+    transition: all 0.3s ease;
+}
+
+.cell.playing {
+    background-color: var(--playing-bg);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cell.playing input {
+    color: var(--playing-text);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.controls label {
+    margin-right: 10px;
+}
+
+.controls select, .controls input[type="number"], .controls input[type="file"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--cell-bg);
+    background-color: var(--container-bg);
+    color: var(--text-color);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--btn-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--btn-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--btn-secondary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.tempo-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.tempo-control label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#tempo {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 0.5rem;
+}
+
+#gridSize {
+    width: 60px;
+}
+
+#updateGrid {
+    padding: 8px 16px;
+    background-color: var(--update-btn);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#updateGrid:hover {
+    background-color: var(--update-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.dark-mode-toggle input {
+    margin-right: 5px;
+}
+
+#graphContainer {
+    margin-bottom: 2rem;
+}
+
+canvas {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: var(--text-color);
+    color: var(--container-bg);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+

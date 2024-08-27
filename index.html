@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Melody Maker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mathematical Melody Maker</h1>
+        <p class="definition">
+            Mathemelody is a musical sequencer that transforms mathematical
+            equations into melodies. Each grid cell represents a step in the
+            sequence, where the equation's result determines the note played.
+        </p>
+
+        <div id="graphContainer">
+            <canvas id="equationGraph"></canvas>
+        </div>
+
+        <details class="instructions">
+            <summary>How to Use</summary>
+            <ol>
+                <li>Set the number of grids and click "Update Grid".</li>
+                <li>Enter equations in each cell (use 'x' for the step number).</li>
+                <li>Select a wave type from the dropdown menu.</li>
+                <li>Click "Play" to start the sequence.</li>
+                <li>Adjust tempo with the slider.</li>
+                <li>Click "Stop" to end playback.</li>
+            </ol>
+            <p>Example equation: 2*x + 1</p>
+        </details>
+
+        <div class="controls">
+            <label for="gridSize">Number of grids:</label>
+            <input type="number" id="gridSize" min="1" max="32" value="16">
+            <button id="updateGrid">Update Grid</button>
+
+            <label for="waveType">Wave Type:</label>
+            <select id="waveType">
+                <option value="sine">Sine</option>
+                <option value="square">Square</option>
+                <option value="triangle">Triangle</option>
+                <option value="sawtooth">Sawtooth</option>
+            </select>
+
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="darkModeToggle">
+                <label for="darkModeToggle">Dark Mode</label>
+            </div>
+        </div>
+
+        <div id="errorMessage" style="display: none; color: red; margin-bottom: 1rem;"></div>
+
+        <div id="equationGrid" class="grid"></div>
+
+        <div class="controls">
+            <button id="play" class="btn btn-primary">Play</button>
+            <button id="stop" class="btn btn-secondary">Stop</button>
+            <div class="tempo-control">
+                <label for="tempo">Tempo: <span id="tempoValue">120</span> BPM</label>
+                <input type="range" id="tempo" min="60" max="240" value="120">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
